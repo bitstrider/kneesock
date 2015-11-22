@@ -1,0 +1,100 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  <head>
+    <meta charset="utf-8">
+    <title>:{kneesock.js chatroom}:</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel='stylesheet' id='bootstrap-style-css'  href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css?ver=4.3.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='fa-style-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css?ver=4.3.1' type='text/css' media='all' />
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+      body {
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+      #main{
+        padding:50px;  
+      }
+      #chats{
+        height:400px;
+      }
+      #msg {
+        padding:5px;
+      }
+      span.chat-nick {
+        padding: 5px;
+        background: #eee;
+        font-weight: bold;
+      }
+      span.chat-nick:after{
+        content:' :'
+      }
+      span.chat-msg {
+        padding: 5px;
+      }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- styles -->
+    <!-- <link href="stylesheets/style.css" rel="stylesheet"> -->
+
+  </head>
+  <body>
+    <section id="main" class="container">
+      <div class="row">      
+        <h1>:{kneesock.js chatroom}:</h1>
+      </div>
+      <div class="row" style="margin-top:20px">
+        <div id="chats">
+
+
+        </div>
+
+      </div>
+      <div class="row">
+        <input id="msg" type="text"></input>
+        <input id="send" type="submit" class="btn btn-primary"></input>
+      </div>
+    </section>
+    <footer>
+      <script type='text/javascript' src='//code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+      <script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=3.3.4'></script>
+
+      <script>
+        $(function(){
+          
+          var $ws = new WebSocket(location.origin.replace(/^http/, 'ws'));
+          $ws.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+
+            var chat = $('<p class="chat"><span class="chat-nick"></span><span class="chat-msg"></span></p>')
+
+            chat.find('.chat-nick')
+              .text(data.nick||'*')
+              .siblings('.chat-msg')
+              .text(data.msg)
+              .parent('.chat')
+              .appendTo('#chats');
+
+          }
+
+          $("#send").click(function(){
+            $ws.send( $("#msg").val() )
+            $("#msg").val('') //clear input field
+          })
+
+          //trigger send when user presses enter in msg box
+          $('#msg').keypress(function(e){
+            if(e.keyCode==13)
+            $('#send').click();
+          });
+
+        })
+      </script>
+    </footer>
+  </body>
+</html>

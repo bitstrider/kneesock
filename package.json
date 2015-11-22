@@ -1,0 +1,23 @@
+{
+  "name": "kneesock.js",
+  "version": "1.0.0",
+  "description": "a simple pub sub wrapper for websockets/ws",
+  "main": "index.js",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/bitstrider/kneesock.js"
+  },
+  "dependencies": {
+    "ws": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ws",
+    "websocket"
+  ],
+  "author": "Jason Yung",
+  "license": "MIT"
+}
