@@ -1,11 +1,11 @@
 {
-  "name": "kneesock.js",
+  "name": "kneesock",
   "version": "1.0.0",
   "description": "a simple pub sub wrapper for websockets/ws",
   "main": "index.js",
   "repository":{
     "type": "git",
-    "url": "https://github.com/bitstrider/kneesock.js"
+    "url": "https://github.com/bitstrider/kneesock"
   },
   "dependencies": {
     "ws": "^0.8.0"

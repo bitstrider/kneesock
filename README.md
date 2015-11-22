@@ -3,6 +3,9 @@
 
 a simple pub sub wrapper for websockets/ws
 
+### Installing
+
+	$ npm install --save kneesock
 
 ### Basic Usage
 
@@ -47,4 +50,6 @@ kneesock.server.http.listen(port, function () { console.log('Listening on ' + po
 ```
 
 ### Demos
-Run the command ` node demo/chatroom.js` to check out a basic chatting service.
+To check out an example of a basic chatting service, run the command:
+	
+	$ node demo/chatroom.js` 
