@@ -1,4 +1,4 @@
-# kneesock.js
+# kneesock
 *by Jason Yung - [http://callmejay.com](http://callmejay.com "http://callmejay.com")*
 
 a simple pub sub wrapper for websockets/ws
