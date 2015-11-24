@@ -60,7 +60,7 @@ KneeSock.prototype.getChannel = function(channel_id) {
 
 
 KneeSock.prototype.hasChannel = function(channel_id) {
-	return this.channels[channel_id] === undefined
+	return this.channels[channel_id] !== undefined
 }
  
 
