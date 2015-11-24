@@ -1,6 +1,6 @@
 {
   "name": "kneesock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a simple pub sub wrapper for websockets/ws",
   "main": "index.js",
   "repository":{
