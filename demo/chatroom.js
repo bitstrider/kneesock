@@ -5,7 +5,7 @@ var path = require('path')
 	, app = express()
 	, port = 4080
 
-app.set('view engine', 'ejs'); 
+app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
 	//res.send({ msg: "hello" });
@@ -13,11 +13,11 @@ app.get('/', function (req, res) {
 });
 
 
-var KneeSock = require('../index.js')
+var KneeSock = require('kneesock')
 var kneesock = new KneeSock({app:app, port:port}, function onConnect(clientSpace) {
 
 	var time = process.hrtime();
-	clientSpace.data.nick = 'anon' + time[0] + time[1] 
+	clientSpace.data.nick = 'anon' + time[0] + time[1]
 
 	kneesock.subscribe('chatroom', clientSpace);
 
@@ -25,7 +25,7 @@ var kneesock = new KneeSock({app:app, port:port}, function onConnect(clientSpace
 
 	clientSpace.client.on('message', function incoming(message) {
 		console.log('received: %s', message);
-		
+
 		if(message.startsWith('/nick ')){
 
 			//set nickname command

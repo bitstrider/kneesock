@@ -1,8 +1,8 @@
-<!DOCTYPE html>  
-<html lang="en">  
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>:{kneesock.js chatroom}:</title>
+    <title>kneesock-demo: simple chat</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -14,7 +14,7 @@
         font-family: 'Roboto Condensed', sans-serif;
       }
       #main{
-        padding:50px;  
+        padding:50px;
       }
       #chats{
         height:400px;
@@ -45,8 +45,8 @@
   </head>
   <body>
     <section id="main" class="container">
-      <div class="row">      
-        <h1>:{kneesock.js chatroom}:</h1>
+      <div class="row">
+        <h1>kneesock-demo: simple chat</h1>
       </div>
       <div class="row" style="margin-top:20px">
         <div id="chats">
@@ -56,17 +56,22 @@
 
       </div>
       <div class="row">
-        <input id="msg" type="text"></input>
+        <input id="msg" type="text" placeholder="Write Something"></input>
         <input id="send" type="submit" class="btn btn-primary"></input>
+
+        <h4>commands:</h4>
+        <small>/nick [name]</small>
       </div>
     </section>
+    <a href="https://github.com/bitstrider/kneesock"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
     <footer>
       <script type='text/javascript' src='//code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
       <script type='text/javascript' src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js?ver=3.3.4'></script>
 
       <script>
         $(function(){
-          
+
           var $ws = new WebSocket(location.origin.replace(/^http/, 'ws'));
           $ws.onmessage = function(event) {
             var data = JSON.parse(event.data);

@@ -19,7 +19,7 @@ var kneesock = new KneeSock({}, function onConnect(clientSpace) {
 
 	clientSpace.client.on('message', function incoming(message) {
 		console.log('received: %s', message);
-		
+
 		kneesock.publish('chatroom', message)
 
 	});
@@ -51,5 +51,7 @@ kneesock.server.http.listen(port, function () { console.log('Listening on ' + po
 
 ### Demos
 To check out an example of a basic chatting service, run the command:
-	
-	$ node demo/chatroom.js` 
+
+	$ cd demo
+	$ npm install
+	$ node chatroom.js
