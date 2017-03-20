@@ -52,6 +52,6 @@ kneesock.server.http.listen(port, function () { console.log('Listening on ' + po
 ### Demos
 To check out an example of a basic chatting service, run the command:
 
-	$ cd demo
-	$ npm install
-	$ node chatroom.js
+	$ node demo/chatroom.js
+
+This will run the demo locally at http://localhost:4080

@@ -13,7 +13,8 @@ app.get('/', function (req, res) {
 });
 
 
-var KneeSock = require('kneesock')
+//var KneeSock = require('kneesock')
+var KneeSock = require('../index.js')
 var kneesock = new KneeSock({app:app, port:port}, function onConnect(clientSpace) {
 
 	var time = process.hrtime();
